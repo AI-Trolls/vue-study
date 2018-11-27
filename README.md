@@ -29,7 +29,7 @@ https://cdnjs.cloudflare.com/ajax/libs/vue/<version>/vue.min.js
   
 - **빌드 도구**가 필요한 이유는, 자바스크립트가 **기본적으로 '모듈화 기능'을 지원하지 않기** 때문
   - 모듈화가 되어서 하나로 잘 묶인다면 브라우저에서 쓰기 편하니까 그런가?
-    - ㅇㅇ, webpack 이나 browserify와 같은 모듈번들러를 이용하면 
+    - ㅇㅇ, webpack 이나 browserify와 같은 모듈번들러를 이용하면   
       프로그램을 single file로 만들 수 있어 쉽게 배포 가능!
     
 - **UMD** (Universal Module Definition) 빌드 방식
@@ -41,7 +41,7 @@ https://cdnjs.cloudflare.com/ajax/libs/vue/<version>/vue.min.js
     - (런타임 부분만을 포함한) vue.runtime.js or vue.runtime.min.js 라이브러리 파일들을 제공한다.
   - 따라서 템플릿이 미리 컴파일 되어 있다면, 런타임 라이브러리만 포함시켜 번들링할 수 있다.  
     -> 이 경우 컴파일러가 없으므로 용량이 30%정도 줄어든다고함...(컴파일러까지 포함된 빌드 파일에 비해)
-  - 그렇기 때문에, 만약 웹페이지에 vue template을 구현한다면, 
+  - 그렇기 때문에, 만약 웹페이지에 vue template을 구현한다면,  
     웹페이지에 CDN을 추가할 때, 반드시 컴파일러가 포함된 라이브러리를 사용해야함.
     - 먼 느낌인지만 알겠다.
 
@@ -93,15 +93,16 @@ https://cdnjs.cloudflare.com/ajax/libs/vue/<version>/vue.min.js
         <script src="bundle.js"></script>
         ```
         뭐, 이런식으로 구조를 만들고 나서 **browserify를 이용한 번들링**을 하면!!  
-        브라우저에 구현이 안된 **CommonJS 기반으로 모듈을 불러오는 작업**을 위해서 js파일을 하나로 묶어버릴 수 있다.   
+        브라우저에 구현이 안된 **CommonJS 기반으로 모듈을 불러오는 작업**을 위해서  
+        js파일을 하나로 묶어버릴 수 있다.   
         (여기서 commonjs 기반의 모듈이 왜나오냐면, browserify에서 지원하는 '모듈 형식' 중 하나기 때문)
         bundle.js 라는 아웃풋으로.
         ```
         browserify main.js -o bundle.js
         ```
         파일 하나로 번들링 해버림 (bundle.js만 포함하면 vue.js 는따로 요청 안해도됨, 이미 합해져있어서)
-        - 추가적으로, Browserify는 파일만 합쳐줄 뿐, 난독화/압축 작업 안하기 때문에
-          필요하면 uglify라는 것을 이용.
+        - 추가적으로, Browserify는 파일만 합쳐줄 뿐,  
+          난독화/압축 작업 안하기 때문에 필요하면 uglify라는 것을 이용.
         - 주의할 점 하나, Browserify는 모듈 파일이 node_modules에 모두 존재해야 하므로, 주의
       - **Webpack 1**
         - 바로 앞 예제를 webpack 1 번들러를 통해서 번들링할 수도 있음
