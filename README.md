@@ -35,8 +35,12 @@ https://cdnjs.cloudflare.com/ajax/libs/vue/<version>/vue.min.js
       - 먼 느낌인진 알겠다.
 - 방식만 다를 뿐 UMD 외에도 **'모듈 번들러'(문맥상 '빌드 도구'와 비슷한 말인듯 싶다)**는
   - CommonJS, Browserify, Webpack 등 여러가지가 있음
-- 걍 **프로젝트를 번들화 해서 하나로 묶어**주는 역할인 듯
-  - Browserify 에 대해서 간단히 살펴보면
+- 걍 **프로젝트를 번들화 해서 하나로 묶어**주는 역할인 듯 ( + 코드 난독화 및 압축의 효과 )
+  - **CommonJS**에 대해서 간략히 살펴보면
+    - ES6가 나오기 이전에 자바스크립트 모듈화를 위해 사용하던 것
+    - Node.js 에서 채택한 방식이라고함
+    - vue.js 는 commonjs 기반의 빌드를 위한 파일도 제공한다 (vue.common.js, vue.runtime.common.js)
+  - **Browserify** 에 대해서 간단히 살펴보면
     ```
     bundle
     - node_module
@@ -55,7 +59,7 @@ https://cdnjs.cloudflare.com/ajax/libs/vue/<version>/vue.min.js
     main.js
     ```js
     var sum = require("sum");
-    var Vue = require("vue.common");
+    var Vue = require("vue.common"); // commonjs 기반으로 제공되는 vue.js 파일
     
     var app = new Vue({
       el: "#app",
@@ -71,8 +75,10 @@ https://cdnjs.cloudflare.com/ajax/libs/vue/<version>/vue.min.js
     </div>
     <script src="bundle.js"></script>
     ```
-    뭐, 이런식으로 구조를 만들고 나서 **browserify를 이용한 번들링**을 하면!!
-    브라우저에 구현이 안된 '모듈을 불러오는 작업'을 위해서 js파일을 하나로 묶어버릴 수 있다. bundle.js 라는 아웃풋으로.
+    뭐, 이런식으로 구조를 만들고 나서 **browserify를 이용한 번들링**을 하면!!  
+    브라우저에 구현이 안된 **'CommonJS 기반으로 모듈을 불러오는 작업'**을 위해서 js파일을 하나로 묶어버릴 수 있다.   
+    (여기서 commonjs 기반의 모듈이 왜나오냐면, browserify에서 지원하는 모듈 형식 중 하나기 때문)
+    bundle.js 라는 아웃풋으로.
     ```
     browserify main.js -o bundle.js
     ```
