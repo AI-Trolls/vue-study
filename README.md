@@ -145,5 +145,46 @@ https://cdnjs.cloudflare.com/ajax/libs/vue/<version>/vue.min.js
      }
     });
     ```
+    이후에, **webpack 3 모듈 번들러** 필요
+    ```
+    npm install -g webpack@3
+    ```
+    webpack.config.js (앱을 빌드 할 때, 어떤 스크립트를 번들 파일로 만들고, 위치 시키고, 최적화 시킬지)
+    ```js
+    const webpack = require('webpack');
+    var path = require('path');
+    
+    module.exports = {
+      entry: {
+        app: './main.js'  // app이라는 key는 [name]으로 재사용 가능, value는 번들링 대상
+      },
+      output: {
+        path: path.resolve(__dirname, './dist'),
+        filename: '[name].js',  // 번들링 이후에 /dist/app.js 가 생성될 것임
+        publicPath: '/'
+      },
+      plugins: [
+        new webpack.EnvironmentPlugin(['NODE_ENV'])
+      ],
+      resolve: { // ES Module을 불러 사용하기 위해 옵션 추가.
+        alias: {
+          'vue$': 'vue/dist/vue.esm.js' // js 파일에서 어떤 이름으로 ES Module을 참조할지 지정
+        },
+        extensions: ['.js']
+      },
+    }
+    ```
+    index.html
+    ```html
+    <div id="app">
+      {{ message }}
+    </div>
+    <script src="dist/app.js"></script>
+    ```
+    마지막으로
+    ```
+    webpack
+    ```
+    명령어를 실행함으로써 app.js를 생성한다.
   
   
