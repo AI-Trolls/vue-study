@@ -1,5 +1,7 @@
 # vue 정리
 - 'vue.js 첫걸음' 및 강의 참고
+- 헷갈리는 개념만 readme 에 정리,
+- 코드는 
 
 ## vue-cli 2 기반 (vue cli 3는 따로 작성)
 
