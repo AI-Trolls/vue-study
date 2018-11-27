@@ -174,7 +174,7 @@ https://cdnjs.cloudflare.com/ajax/libs/vue/<version>/vue.min.js
         alias: {
           'vue$': 'vue/dist/vue.esm.js' // js 파일에서 어떤 이름으로 ES Module을 참조할지 지정
         },
-        extensions: ['.js']
+        extensions: ['.js'] // webpack 실행시, 명시된 확장자와 일치하는 파일 내에선(?) alias 옵션 참조 가능
       },
     }
     ```
