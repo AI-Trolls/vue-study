@@ -58,7 +58,7 @@ https://cdnjs.cloudflare.com/ajax/libs/vue/<version>/vue.min.js
   - vue.js 는 commonjs 기반의 빌드를 위한 파일또한 제공한다 
     - (vue.common.js, vue.runtime.common.js)
     - commonjs 모듈 형식의 파일은 browserify, webpack 1등의 모듈 번들러와 사용 가능하다!!
-      - **Browserify** 에 대해서 간단히 살펴보면
+      - 이 CommonJS 기반의 번들러인 **Browserify** 에 대해서 간단히 살펴보면
         ```
         bundle
         - node_module
