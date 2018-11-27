@@ -24,7 +24,6 @@ https://cdnjs.cloudflare.com/ajax/libs/vue/<version>/vue.min.js
 ### 빌드 도구 
 - 참고로 vue-cli는 기본 **'빌드' 템플릿**으로 webpack, browserify 등을 제공
   - 왜 빌드란 것이 필요 한 것인지????? 궁금스해서 정리함
-- **(한번쯤 봐둘만한 것 같지만, 책에 설명을 너무 못써놔서 나열만 해놓음)**
 - **빌드 도구**가 필요한 이유는, 자바스크립트가 **기본적으로 '모듈화 기능'을 지원하지 않기** 때문
   - 모듈화가 되어서 하나로 잘 묶인다면 브라우저에서 쓰기 편하니까 그런가? 
   - **UMD** (Universal Module Definition)
@@ -35,6 +34,8 @@ https://cdnjs.cloudflare.com/ajax/libs/vue/<version>/vue.min.js
       - 먼 느낌인진 알겠다.
 - 방식만 다를 뿐 UMD 외에도 **'모듈 번들러'(문맥상 '빌드 도구'와 비슷한 말인듯 싶다)**는
   - CommonJS, Browserify, Webpack 등 여러가지가 있음
+    - UMD, CommonJS는 모듈 형식을 말하는 것 같고
+    - Browserify, Webpack은 모듈 형식에 기반한 모듈 번들러를 의미하는 것 같다... (책에 이상하게 나와 ㅡㅡ;)
 - 걍 **프로젝트를 번들화 해서 하나로 묶어**주는 역할인 듯 ( + 코드 난독화 및 압축의 효과 )
   - **CommonJS**에 대해서 간략히 살펴보면
     - ES6가 나오기 이전에 자바스크립트 모듈화를 위해 사용하던 것
@@ -77,7 +78,7 @@ https://cdnjs.cloudflare.com/ajax/libs/vue/<version>/vue.min.js
     ```
     뭐, 이런식으로 구조를 만들고 나서 **browserify를 이용한 번들링**을 하면!!  
     브라우저에 구현이 안된 **'CommonJS 기반으로 모듈을 불러오는 작업'**을 위해서 js파일을 하나로 묶어버릴 수 있다.   
-    (여기서 commonjs 기반의 모듈이 왜나오냐면, browserify에서 지원하는 모듈 형식 중 하나기 때문)
+    (여기서 commonjs 기반의 모듈이 왜나오냐면, browserify에서 지원하는 '모듈 형식' 중 하나기 때문)
     bundle.js 라는 아웃풋으로.
     ```
     browserify main.js -o bundle.js
