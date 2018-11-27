@@ -46,8 +46,8 @@ https://cdnjs.cloudflare.com/ajax/libs/vue/<version>/vue.min.js
     - 먼 느낌인지만 알겠다.
 
 - UMD, CommonJS, Browserify, Webpack 등 듣도 보지도 못한 용어들이 계속 나오는데!!!!!
-    - **UMD, CommonJS**는 **모듈 형식(모듈 방식, 빌드 형식)**을 말하는 것 같고
-    - **Browserify, Webpack**은 모듈 형식에 기반한 **모듈 번들러(빌드도구)**를 의미하는 것 같다...  
+    - **UMD, CommonJS**는 **모듈 형식; 모듈 방식, 빌드 형식**을 말하는 것 같고
+    - **Browserify, Webpack**은 모듈 형식에 기반한 **모듈 번들러; 빌드도구**를 의미하는 것 같다...  
     (책에 뭔가 두서없이 정리되어있어 답답스ㅡㅡ;)
     
 - 번들러 역할은, 걍 **프로젝트를 번들화 해서 하나로 묶어**주는 역할인 듯 ( + 코드 난독화 및 압축의 효과 )
@@ -55,7 +55,8 @@ https://cdnjs.cloudflare.com/ajax/libs/vue/<version>/vue.min.js
 - **CommonJS**에 대해서 간략히 살펴보면 (이또한 UMD 같은 빌드 타입인듯 싶다)
   - ES6가 나오기 이전에 **자바스크립트 모듈화를 위해** 사용하던 것
   - Node.js 에서 채택한 방식이라고함
-  - vue.js 는 commonjs 기반의 빌드를 위한 파일또한 제공한다 (vue.common.js, vue.runtime.common.js)
+  - vue.js 는 commonjs 기반의 빌드를 위한 파일또한 제공한다 
+    - (vue.common.js, vue.runtime.common.js)
     - commonjs 모듈 형식의 파일은 browserify, webpack 1등의 모듈 번들러와 사용 가능하다!!
       - **Browserify** 에 대해서 간단히 살펴보면
         ```
