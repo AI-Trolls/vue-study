@@ -23,7 +23,7 @@ https://cdnjs.cloudflare.com/ajax/libs/vue/<version>/vue.min.js
 - npm install -g vue-cli (참고, vue-cli 3는 다르게 깔음)
 - vue init webpack hello
 
-### 빌드(모듈화)방식/형식과, 빌드도구(모듈번들러) -> 일단 쓸줄 몰라도. 뭔지는 알고 있어야 
+### 빌드(모듈화)방식/형식과, 빌드도구(모듈번들러) -> 일단 쓸줄 몰라도. 뭔지는 알고 있어야  
 - 참고로 vue-cli는 기본 **'빌드' 템플릿**으로 webpack, browserify 등을 제공
   - 왜 **빌드**란 것이 필요 한 것인지????? 궁금스해서 정리함
   
@@ -39,7 +39,7 @@ https://cdnjs.cloudflare.com/ajax/libs/vue/<version>/vue.min.js
   - UMD 기반으로 번들링된 vue.js 라이브러리 파일의 경우에
     - (컴파일러 + 런타임 부분을 합한) 버전인 vue.js or vue.min.js
     - (런타임 부분만을 포함한) vue.runtime.js or vue.runtime.min.js 라이브러리 파일들을 제공한다.
-  - 따라서 템플릿이 미리 컴파일 되어 있다면, 런타임 라이브러리만 포함시켜 번들링할 수 있다.
+  - 따라서 템플릿이 미리 컴파일 되어 있다면, 런타임 라이브러리만 포함시켜 번들링할 수 있다.  
     -> 이 경우 컴파일러가 없으므로 용량이 30%정도 줄어든다고함...(컴파일러까지 포함된 빌드 파일에 비해)
   - 그렇기 때문에, 만약 웹페이지에 vue template을 구현한다면, 
     웹페이지에 CDN을 추가할 때, 반드시 컴파일러가 포함된 라이브러리를 사용해야함.
