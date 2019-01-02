@@ -18,8 +18,7 @@ export default {
 	methods: {
 		addTodo: function() {
 			if (this.newTodoItem !== '') {
-				var obj = {completed: false, item: this.newTodoItem};
-				localStorage.setItem(this.newTodoItem, JSON.stringify(obj));
+				this.$emit('addTodoItem', this.newTodoItem); // to App.vue
 				this.clearInput();
 			}
 		},
@@ -50,6 +49,7 @@ input:focus {
 	display: block;
 	width: 3rem;
 	border-radius: 0 5px 5px 0;
+	cursor: pointer;
 }
 .addBtn {
 	color: white;

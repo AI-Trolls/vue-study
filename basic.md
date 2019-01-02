@@ -3,18 +3,16 @@
 
 ## vue cli 3
 - [문서](https://cli.vuejs.org/guide/)
+- cli, cli service 등에 대해서 훑어보고, config ref도 참고
 
 ## 설치한 것
 	```
 	sudo npm i @vue/cli
 	```
 
-## 명령
+## 프로젝트 생성 
 	```
-	vue -v
-
 	vue create hello-world
-
 	```
 
 ## ec2 환경에서 개발하기
