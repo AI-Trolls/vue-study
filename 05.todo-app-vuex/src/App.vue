@@ -1,11 +1,9 @@
 <template>
   <div id="app">
 		<todo-header></todo-header>
-		<todo-input v-on:addTodoItem="addOneItem"></todo-input>
-		<todo-list v-bind:propsdata="todoItems" 
-			v-on:removeItem="removeOneItem" 
-			v-on:toggleItem="toggleOneItem"></todo-list>
-		<todo-footer v-on:clearAll="clearAllItems"></todo-footer>
+		<todo-input></todo-input>
+		<todo-list></todo-list>
+		<todo-footer></todo-footer>
   </div>
 </template>
 
@@ -20,39 +18,6 @@ import TodoFooter from './components/TodoFooter.vue'
 	데이터 처리는 상위(App.vue)로 올려 처리
 */
 export default {
-	data() {
-		return {
-			todoItems: [],	
-		}	
-	},
-	methods: {
-		addOneItem(todoItem) {
-			const obj = {completed: false, item: todoItem};
-			localStorage.setItem(todoItem, JSON.stringify(obj));
-			this.todoItems.push(obj);
-		},
-		removeOneItem(todoItem, index) {
-			localStorage.removeItem(todoItem.item);
-			this.todoItems.splice(index, 1);
-		},
-		toggleOneItem(index) {
-			this.todoItems[index].completed = !this.todoItems[index].completed;
-			localStorage.setItem(this.todoItems[index].item, JSON.stringify(this.todoItems[index]));
-		},
-		clearAllItems() {
-			localStorage.clear();	
-			this.todoItems = [];
-		}
-	},
-	created() {
-		if (localStorage.length > 0) {
-			for (let i = 0; i < localStorage.length; i ++) {
-				console.log('this', localStorage.getItem(localStorage.key(i)));
-				const item = JSON.parse(localStorage.getItem(localStorage.key(i)));
-				this.todoItems.push(item);
-			}	
-		}
-	},
 	components: {
 		'todo-header': TodoHeader,
 		'todo-input': TodoInput,

@@ -3,7 +3,7 @@
 		<!-- name은 transition class(css) 이름과 관계됨 -->
 		<transition-group name="list" tag="ul"> 
 		<!--<ul>-->
-			<li v-for="(todoItem, index) in propsdata" v-bind:key="todoItem.item" class="shadow">
+			<li v-for="(todoItem, index) in this.$store.state.todoItems" v-bind:key="todoItem.item" class="shadow">
 				<i class="checkBtn fas fa-check" v-bind:class="{checkBtnCompleted: todoItem.completed}" 
 					v-on:click="toggleComplete(index)"></i>
 				<span v-bind:class="{textCompleted: todoItem.completed}">{{ todoItem.item }}</span>
@@ -18,14 +18,13 @@
 
 <script>
 export default {
-	props: ['propsdata'],
 	methods: {
 		removeTodo(todoItem, index) {
-			this.$emit('removeItem', todoItem, index);
-			console.log('removeItem', todoItem, index);	
+			const payload = { todoItem, index };
+			this.$store.commit('removeOneItem', payload);
 		},
 		toggleComplete(index) {
-			this.$emit('toggleItem', index);
+			this.$store.commit('toggleOneItem', index);
 		}
 	},
 }
