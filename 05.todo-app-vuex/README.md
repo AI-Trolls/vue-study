@@ -1,6 +1,6 @@
 # todo-app
 
-## [참고 블로그](https://joshua1988.github.io)
+## [참고 블로그](https://joshua1988.github.io/web-development/vuejs/vuex-start/)
 
 ## Vuex
 - 컴포넌트가 정말 많아졌을 때 데이터를 효율적으로 관리하기 위해
