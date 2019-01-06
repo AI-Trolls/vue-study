@@ -3,11 +3,11 @@
 		<!-- name은 transition class(css) 이름과 관계됨 -->
 		<transition-group name="list" tag="ul"> 
 		<!--<ul>-->
-			<li v-for="(todoItem, index) in this.$store.state.todoItems" v-bind:key="todoItem.item" class="shadow">
+			<li v-for="(todoItem, index) in this.storedTodoItems" v-bind:key="todoItem.item" class="shadow">
 				<i class="checkBtn fas fa-check" v-bind:class="{checkBtnCompleted: todoItem.completed}" 
 					v-on:click="toggleComplete(index)"></i>
 				<span v-bind:class="{textCompleted: todoItem.completed}">{{ todoItem.item }}</span>
-				<span class="removeBtn" v-on:click="removeTodo(todoItem, index)">  
+				<span class="removeBtn" v-on:click="removeTodo({todoItem, index})">  
 					<i class="fas fa-trash-alt"></i>
 				</span>
 			</li>
@@ -17,16 +17,22 @@
 </template>
 
 <script>
+import { mapGetters, mapMutations } from 'vuex'
+
 export default {
 	methods: {
-		removeTodo(todoItem, index) {
-			const payload = { todoItem, index };
-			this.$store.commit('removeOneItem', payload);
-		},
-		toggleComplete(index) {
-			this.$store.commit('toggleOneItem', index);
-		}
+		...mapMutations({
+			removeTodo: 'removeOneItem', // 파라미터는 알아서 넘겨줌(대신 호출 단에서 1개만 넘겨야)
+			toggleComplete: 'toggleOneItem',
+		}),
 	},
+	// computed를 이용함으로써 template단에서의 연산로직이나 긴 코드를 script로 뺄 수 있다.
+	computed: {
+		...mapGetters(['storedTodoItems']),
+		//...mapGetters({
+		//	todoItems: 'storedTodoItems',	 // 이것도 가능함!! (다른이름으로 지정)
+		//})
+	}
 }
 </script>
 
