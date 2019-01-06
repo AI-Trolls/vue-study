@@ -65,7 +65,7 @@
 	- actions -> mapActions
 		```js
 		// App.vue
-		import { mapActions } from 'vuex
+		import { mapActions } from 'vuex'
 
 		methods: {
 			...mapActions(['delayClickBtn']),
