@@ -5,6 +5,7 @@
 
 ## vue-cli 3 기반의 기본기 정리
 - [여기로](./basic.md)
+- vue-router 사용법 [링크](./router.md)
 
 ## vue-cli 2 기반 
 
