@@ -199,13 +199,15 @@ https://cdnjs.cloudflare.com/ajax/libs/vue/<version>/vue.min.js
   - 궁금스 하면 책참고
 
 ### static 폴더 만들기
-
-```
-module.exports = {
-  // ...
-  build: {
-    assetsPublicPath: '/',
-    assetsSubDirectory: 'static'
+  - vue.config.js 
+  ```
+  module.exports = {
+    // ...
+    build: {
+      assetsPublicPath: '/',
+      assetsSubDirectory: 'static'
+    }
   }
-}
-```
+  ```
+  - 그런데 에러 발생: ERROR  Invalid options in vue.config.js: "build" is not allowed
+  - 걍 public 
